@@ -42,7 +42,7 @@ def replay(func: Callable):
     outputs_key = '{}:outputs'.format(method_name)
 
     num_calls = len(cache._redis.lrange(inputs_key, 0, -1))
-    print(f"{method_name} was called {num_calls} times:")
+    print('{} was called {} times:'.format(method_name, num_calls))
 
     inputs = cache._redis.lrange(inputs_key, 0, -1)
     outputs = cache._redis.lrange(outputs_key, 0, -1)
